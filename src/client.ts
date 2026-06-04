@@ -39,8 +39,9 @@ export const apiClient: AxiosInstance = axios.create({
 });
 
 // Format endpoint to support dynamic API prefixes (e.g. /api/controller/v2/)
-function formatEndpoint(endpoint: string): string {
-  const cleanPrefix = apiPrefix.endsWith("/") ? apiPrefix : `${apiPrefix}/`;
+export function formatEndpoint(endpoint: string): string {
+  const currentPrefix = process.env.AAP_API_PREFIX || "/api/controller/v2";
+  const cleanPrefix = currentPrefix.endsWith("/") ? currentPrefix : `${currentPrefix}/`;
   if (endpoint.startsWith("/api/v2/")) {
     return endpoint.replace("/api/v2/", cleanPrefix);
   }
