@@ -11,7 +11,7 @@ permissions:
   packages: write
 
 env:
-  REGISTRY: ghcr.io
+  REGISTRY: docker.io
   IMAGE_NAME: srinivassrinu842/ansible-mcp-server
 
 jobs:
